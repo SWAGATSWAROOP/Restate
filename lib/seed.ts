@@ -25,7 +25,7 @@ const propertyTypes = [
   "Others",
 ];
 
-const facilities = ["Laundry", "Parking", "Gym", "Wifi", "Pet-friendly"];
+const facility = ["Laundry", "Parking", "Gym", "Wifi", "Pet-friendly"];
 
 function getRandomSubset<T>(
   array: T[],
@@ -137,9 +137,9 @@ async function seed() {
       const assignedReviews = getRandomSubset(reviews, 5, 7); // 5 to 7 reviews
       const assignedGalleries = getRandomSubset(galleries, 3, 8); // 3 to 8 galleries
 
-      const selectedFacilities = facilities
+      const selectedfacility = facility
         .sort(() => 0.5 - Math.random())
-        .slice(0, Math.floor(Math.random() * facilities.length) + 1);
+        .slice(0, Math.floor(Math.random() * facility.length) + 1);
 
       const image =
         propertiesImages.length - 1 >= i
@@ -163,7 +163,7 @@ async function seed() {
           bedrooms: Math.floor(Math.random() * 5) + 1,
           bathrooms: Math.floor(Math.random() * 5) + 1,
           rating: Math.floor(Math.random() * 5) + 1,
-          facilities: selectedFacilities,
+          facility: selectedfacility,
           image: image,
           agent: assignedAgent.$id,
           reviews: assignedReviews.map((review) => review.$id),
