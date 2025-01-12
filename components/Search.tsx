@@ -14,7 +14,10 @@ const Search = () => {
     500
   );
 
-  const handleSearch = (text: string) => setSearch(text);
+  const handleSearch = (text: string) => {
+    setSearch(text);
+    debouncedSearch(text);
+  };
   return (
     <View className="flex flex-row items-center justify-between w-full px-4 rounded-lg bg-accent-100 border border-primary-100 mt-5 py-2">
       <View className="flex-1 flex flex-row items-center justify-start z-50">
